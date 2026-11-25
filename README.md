@@ -14,15 +14,26 @@ Aplicativo Android desenvolvido com o **DJI Mobile SDK V5 (`5.20.1`)** para voo 
 
 ---
 
-## 1. Configuração da App Key
-1. No arquivo `app/src/main/AndroidManifest.xml`, verifique se a sua App Key da **DJI Developers** está preenchida em:
+## 1. Setup após o clone
+
+Como as pastas `build/`, `.gradle/`, `.idea/` e `local.properties` são ignoradas pelo Git, ao clonar o repositório em outro computador siga estes passos:
+
+### Pré-requisitos
+- **Android Studio** (com suporte a AGP `8.7.0` e Kotlin `2.1.0`)
+- **Android SDK Platform 34** (instalado via *SDK Manager* no Android Studio)
+- **Conexão com a internet** no primeiro *Gradle Sync* para baixar as dependências do **DJI Mobile SDK V5 (`5.20.1`)**
+
+### Passo a passo
+1. Clone o repositório e abra a pasta `Mavic3MAutoFlight` diretamente no **Android Studio** (*File → Open*).
+2. O Android Studio vai criar automaticamente o `local.properties` (com o caminho do seu Android SDK), `.idea/` e `.gradle/`, e iniciar o **Gradle Sync** para baixar o DJI MSDK V5 (`dji-sdk-v5-aircraft:5.20.1`, `dji-sdk-v5-networkImp:5.20.1`, etc.).
+3. No arquivo `app/src/main/AndroidManifest.xml`, verifique se a sua App Key da **DJI Developers** está preenchida em:
    ```xml
    <meta-data
        android:name="com.dji.sdk.API_KEY"
        android:value="SUA_APP_KEY_AQUI" />
    ```
-2. O *Package Name* cadastrado no portal da DJI Developers deve ser exatamente:
-   `com.dji.mavic3mauto`
+   *(O Package Name cadastrado no portal da DJI deve ser `com.dji.mavic3mauto`.)*
+4. Clique em **Assemble app** (ou rode `.\gradlew assembleDebug` no Terminal) para gerar o APK em `app/build/outputs/apk/debug/app-debug.apk`.
 
 ---
 
